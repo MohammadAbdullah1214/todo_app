@@ -34,7 +34,7 @@ const api = axios.create({
 });
 ```
    
-3) In the terminal run,
+2) In the terminal run,
 ```npm
 npm install
 npm start
