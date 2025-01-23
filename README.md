@@ -6,7 +6,7 @@ cd todo_app
 
 
 # **For Backend**
-1. Update the ConnectionStrings in appsettings.json
+1. Open the solution file and update the ConnectionStrings in appsettings.json
 
 ```csharp
 {
