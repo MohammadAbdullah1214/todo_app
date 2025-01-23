@@ -2,7 +2,7 @@ git clone -b main https://github.com/MohammadAbdullah1214/todo_app.git
 cd todo_app
 
 
-**For Backend**
+# **For Backend**
 1. Update the ConnectionString in appsettings.json
 {
   "ConnectionStrings": {
