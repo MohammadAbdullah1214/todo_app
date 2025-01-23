@@ -1,0 +1,95 @@
+2025-01-23 17:49:12.935 +05:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-01-23 17:49:12.987 +05:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-01-23 17:49:12.990 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-01-23 17:49:12.991 +05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-01-23 17:49:13.043 +05:00 [INF] Executed DbCommand (24ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-01-23 17:49:13.055 +05:00 [INF] Applying migration '20250123124848_secondcreate'.
+2025-01-23 17:49:13.133 +05:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DROP TABLE [TaskItems];
+2025-01-23 17:49:13.136 +05:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DROP TABLE [Users];
+2025-01-23 17:49:13.142 +05:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [User] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(max) NOT NULL,
+    [Email] nvarchar(max) NOT NULL,
+    [Password] nvarchar(max) NOT NULL,
+    [Role] nvarchar(max) NOT NULL,
+    [IsDeleted] bit NOT NULL,
+    CONSTRAINT [PK_User] PRIMARY KEY ([Id])
+);
+2025-01-23 17:49:13.146 +05:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Task] (
+    [Id] int NOT NULL IDENTITY,
+    [Title] nvarchar(max) NOT NULL,
+    [Description] nvarchar(max) NOT NULL,
+    [DueDate] datetime2 NULL,
+    [Priority] nvarchar(max) NOT NULL,
+    [Status] nvarchar(max) NOT NULL,
+    [AssignedToUserId] int NOT NULL,
+    [IsDeleted] bit NOT NULL,
+    CONSTRAINT [PK_Task] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Task_User_AssignedToUserId] FOREIGN KEY ([AssignedToUserId]) REFERENCES [User] ([Id]) ON DELETE CASCADE
+);
+2025-01-23 17:49:13.151 +05:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Task_AssignedToUserId] ON [Task] ([AssignedToUserId]);
+2025-01-23 17:49:13.156 +05:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20250123124848_secondcreate', N'8.0.8');
+2025-01-23 17:49:48.412 +05:00 [INF] User profile is available. Using 'C:\Users\Abdullah\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-23 17:49:48.673 +05:00 [INF] Now listening on: http://localhost:5016
+2025-01-23 17:49:48.805 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-23 17:49:48.807 +05:00 [INF] Hosting environment: Development
+2025-01-23 17:49:48.809 +05:00 [INF] Content root path: F:\.net\project\backend\app
+2025-01-23 17:49:49.416 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5016/swagger/index.html - null null
+2025-01-23 17:49:49.692 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5016/swagger/index.html - 200 null text/html;charset=utf-8 293.3911ms
+2025-01-23 17:49:50.253 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5016/_framework/aspnetcore-browser-refresh.js - null null
+2025-01-23 17:49:50.253 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5016/_vs/browserLink - null null
+2025-01-23 17:49:50.259 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5016/_framework/aspnetcore-browser-refresh.js - 200 13742 application/javascript; charset=utf-8 6.0423ms
+2025-01-23 17:49:50.287 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5016/_vs/browserLink - 200 null text/javascript; charset=UTF-8 33.598ms
+2025-01-23 17:49:50.433 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5016/swagger/v1/swagger.json - null null
+2025-01-23 17:49:50.585 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5016/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 152.0049ms
+2025-01-23 17:50:02.930 +05:00 [INF] User profile is available. Using 'C:\Users\Abdullah\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-23 17:50:03.165 +05:00 [INF] Now listening on: http://localhost:5016
+2025-01-23 17:50:03.368 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-23 17:50:03.370 +05:00 [INF] Hosting environment: Development
+2025-01-23 17:50:03.371 +05:00 [INF] Content root path: F:\.net\project\backend\app
+2025-01-23 17:50:03.585 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5016/swagger/index.html - null null
+2025-01-23 17:50:03.814 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5016/swagger/index.html - 200 null text/html;charset=utf-8 240.3994ms
+2025-01-23 17:50:03.864 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5016/_framework/aspnetcore-browser-refresh.js - null null
+2025-01-23 17:50:03.876 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5016/_framework/aspnetcore-browser-refresh.js - 200 13742 application/javascript; charset=utf-8 13.2015ms
+2025-01-23 17:50:04.208 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5016/_vs/browserLink - null null
+2025-01-23 17:50:04.248 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5016/_vs/browserLink - 200 null text/javascript; charset=UTF-8 40.4997ms
+2025-01-23 17:50:04.402 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5016/swagger/v1/swagger.json - null null
+2025-01-23 17:50:04.570 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5016/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 167.3676ms
+2025-01-23 17:51:35.783 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5016/api/Auth/register - application/json 119
+2025-01-23 17:51:35.805 +05:00 [INF] CORS policy execution successful.
+2025-01-23 17:51:36.935 +05:00 [WRN] Failed to determine the https port for redirect.
+2025-01-23 17:51:36.941 +05:00 [INF] Executing endpoint 'app.Controllers.AuthController.Register (app)'
+2025-01-23 17:51:36.976 +05:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[app.Models.User]] Register(app.Models.User, System.Threading.CancellationToken) on controller app.Controllers.AuthController (app).
+2025-01-23 17:51:38.575 +05:00 [INF] Executed DbCommand (112ms) [Parameters=[@__user_Email_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [User] AS [u]
+        WHERE [u].[Email] = @__user_Email_0 AND [u].[IsDeleted] = CAST(0 AS bit)) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-01-23 17:51:39.403 +05:00 [INF] Executed DbCommand (11ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (DbType = Boolean), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [User] ([Email], [IsDeleted], [Name], [Password], [Role])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-01-23 17:51:39.429 +05:00 [INF] User registered successfully: 1
+2025-01-23 17:51:39.442 +05:00 [INF] Executing CreatedAtActionResult, writing value of type '<>f__AnonymousType2`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[<>f__AnonymousType3`4[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], app, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-23 17:51:39.478 +05:00 [INF] Executed action app.Controllers.AuthController.Register (app) in 2495.1632ms
+2025-01-23 17:51:39.481 +05:00 [INF] Executed endpoint 'app.Controllers.AuthController.Register (app)'
+2025-01-23 17:51:39.491 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5016/api/Auth/register - 201 null application/json; charset=utf-8 3708.6321ms

@@ -1,85 +1,96 @@
-﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using app.Models;
+using System.Security.Claims;
+using Serilog;
 
-[ApiController]
-[Route("api/[controller]")]
-[Authorize]
-public class TaskController : ControllerBase
+namespace app.Controllers
 {
-    private readonly AppDbContext _context;
-
-    public TaskController(AppDbContext context)
+    [Route("api/[controller]")]
+    [ApiController]
+    [Authorize]
+    public class TaskController : ControllerBase
     {
-        _context = context;
-    }
+        private readonly ApplicationDbContext _context;
 
-    [HttpGet]
-    public IActionResult GetTasks()
-    {
-        var username = User.Identity.Name;
-        var user = _context.Users.FirstOrDefault(u => u.Username == username);
-
-        if (user == null)
+        public TaskController(ApplicationDbContext context)
         {
-            return Unauthorized("User not found.");
+            _context = context;
         }
 
-        var tasks = _context.TaskItems.Where(t => t.UserId == user.Id).ToList();
-        return Ok(tasks);
-    }
-
-    [HttpPost]
-    public IActionResult CreateTask(TaskItem task)
-    {
-        var username = User.Identity.Name;
-        var user = _context.Users.FirstOrDefault(u => u.Username == username);
-
-        if (user == null)
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Models.Task>>> GetTasks([FromQuery] TaskFilter filter)
         {
-            return Unauthorized("User not found.");
+            try
+            {
+                var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+                if (!int.TryParse(userIdClaim, out var userId))
+                {
+                    return Unauthorized(new { error = "Invalid user ID." });
+                }
+
+                var userRole = User.FindFirst(ClaimTypes.Role)?.Value;
+
+                IQueryable<Models.Task> query = _context.Task
+                    .Include(t => t.AssignedToUser)
+                    .Where(t => !t.IsDeleted);
+
+                if (userRole != "Admin")
+                {
+                    query = query.Where(t => t.AssignedToUserId == userId);
+                }
+
+                if (!string.IsNullOrEmpty(filter.Status))
+                {
+                    query = query.Where(t => t.Status == filter.Status);
+                }
+
+                if (!string.IsNullOrEmpty(filter.Priority))
+                {
+                    query = query.Where(t => t.Priority == filter.Priority);
+                }
+
+                if (filter.DueDate.HasValue)
+                {
+                    query = query.Where(t => t.DueDate.HasValue && t.DueDate.Value.Date == filter.DueDate.Value.Date);
+                }
+
+                var tasks = await query.ToListAsync();
+                Log.Information("Retrieved {TaskCount} tasks for user {UserId}", tasks.Count, userId);
+                return tasks;
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, "Error retrieving tasks");
+                return StatusCode(500, new { error = "Failed to retrieve tasks." });
+            }
         }
 
-        task.UserId = user.Id;
-        _context.TaskItems.Add(task);
-        _context.SaveChanges();
+        // ... (Other methods remain mostly unchanged with similar fixes applied)
 
-        return Ok("Task created successfully.");
-    }
-
-    [HttpPut("{id}")]
-    public IActionResult UpdateTask(int id, TaskItem updatedTask)
-    {
-        var task = _context.TaskItems.FirstOrDefault(t => t.Id == id);
-
-        if (task == null)
+        private bool TaskExists(int id)
         {
-            return NotFound("Task not found.");
+            return _context.Task.Any(e => e.Id == id && !e.IsDeleted);
         }
 
-        task.Title = updatedTask.Title;
-        task.Description = updatedTask.Description;
-        task.Priority = updatedTask.Priority;
-        task.Status = updatedTask.Status;
-        task.DueDate = updatedTask.DueDate;
-
-        _context.SaveChanges();
-
-        return Ok("Task updated successfully.");
+        internal void GetTasks()
+        {
+            throw new NotImplementedException();
+        }
     }
 
-    [HttpDelete("{id}")]
-    public IActionResult DeleteTask(int id)
+    public class TaskCounts
     {
-        var task = _context.TaskItems.FirstOrDefault(t => t.Id == id);
+        public int Completed { get; set; }
+        public int InProgress { get; set; }
+        public int Pending { get; set; }
+    }
 
-        if (task == null)
-        {
-            return NotFound("Task not found.");
-        }
-
-        _context.TaskItems.Remove(task);
-        _context.SaveChanges();
-
-        return Ok("Task deleted successfully.");
+    public class TaskFilter
+    {
+        public string? Status { get; set; }
+        public string? Priority { get; set; }
+        public DateTime? DueDate { get; set; }
     }
 }

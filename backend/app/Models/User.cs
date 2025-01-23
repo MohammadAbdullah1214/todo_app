@@ -1,10 +1,23 @@
-﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
-public class User
+namespace app.Models
 {
-    public int Id { get; set; }
-    public string Username { get; set; }
-    public string PasswordHash { get; set; }
-    public string Role { get; set; } // "Admin" or "User"
-    public ICollection<TaskItem> Tasks { get; set; }
+    public class User
+    {
+        [Key]
+        public int Id { get; set; }
+
+        [Required]
+        public string Name { get; set; } = string.Empty;
+
+        [Required]
+        public string Email { get; set; } = string.Empty;
+
+        [Required]
+        public string Password { get; set; } = string.Empty;
+
+        public string Role { get; set; } = "User";
+
+        public bool IsDeleted { get; set; } = false;
+    }
 }

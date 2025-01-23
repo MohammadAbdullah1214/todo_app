@@ -167,3 +167,7 @@ F:\.net\project\backend\app\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Runt
 F:\.net\project\backend\app\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 F:\.net\project\backend\app\bin\Debug\net8.0\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
 F:\.net\project\backend\app\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+F:\.net\project\backend\app\obj\Debug\net8.0\app.sourcelink.json
+F:\.net\project\backend\app\bin\Debug\net8.0\Microsoft.AspNetCore.OpenApi.dll
+F:\.net\project\backend\app\bin\Debug\net8.0\MySqlConnector.dll
+F:\.net\project\backend\app\bin\Debug\net8.0\Pomelo.EntityFrameworkCore.MySql.dll
