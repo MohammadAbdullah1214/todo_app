@@ -37,7 +37,7 @@ namespace app.Controllers
                 return BadRequest(ModelState);
             }
 
-            var emailExists = await _context.User
+            var emailExists = await _context.Users
                 .AnyAsync(u => u.Email == user.Email && !u.IsDeleted, cancellationToken);
             if (emailExists)
             {
@@ -49,7 +49,7 @@ namespace app.Controllers
             {
                 user.Role = UserRole;
                 user.Password = _passwordService.HashPassword(user.Password);
-                _context.User.Add(user);
+                _context.Users.Add(user);
                 await _context.SaveChangesAsync(cancellationToken);
 
                 Log.Information("User registered successfully: {UserId}", user.Id);
@@ -69,7 +69,7 @@ namespace app.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<User>> GetUser(int id, CancellationToken cancellationToken)
         {
-            var user = await _context.User.FindAsync(new object[] { id }, cancellationToken);
+            var user = await _context.Users.FindAsync(new object[] { id }, cancellationToken);
             if (user == null)
             {
                 Log.Information("GetUser request for non-existent user: {UserId}", id);
@@ -83,44 +83,44 @@ namespace app.Controllers
         [HttpPost("ensure-admin")]
         public async Task<ActionResult> EnsureAdminExists(CancellationToken cancellationToken)
         {
-        try
-        {
-        var adminExists = await _context.User
-            .AnyAsync(u => u.Name == "admin" && u.Role == AdminRole && !u.IsDeleted, cancellationToken);
-
-        if (!adminExists)
-        {
-            var hashedPassword = _passwordService.HashPassword("admin");
-            var adminUser = new User
+            try
             {
-                Name = "admin",
-                Password = hashedPassword,
-                Role = AdminRole,
-                Email = "admin@default.com", 
-            };
+                var adminExists = await _context.Users
+                    .AnyAsync(u => u.Name == "admin" && u.Role == AdminRole && !u.IsDeleted, cancellationToken);
 
-            _context.User.Add(adminUser);
-            await _context.SaveChangesAsync(cancellationToken);
+                if (!adminExists)
+                {
+                    var hashedPassword = _passwordService.HashPassword("admin");
+                    var adminUser = new User
+                    {
+                        Name = "admin",
+                        Password = hashedPassword,
+                        Role = AdminRole,
+                        Email = "admin@default.com",
+                    };
 
-            Log.Information("Admin user created successfully.");
-            return Ok(new { message = "Admin user created successfully." });
+                    _context.Users.Add(adminUser);
+                    await _context.SaveChangesAsync(cancellationToken);
+
+                    Log.Information("Admin user created successfully.");
+                    return Ok(new { message = "Admin user created successfully." });
+                }
+
+                Log.Information("Admin user already exists.");
+                return Ok(new { message = "Admin user already exists." });
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, "Error occurred while ensuring admin user exists.");
+                return StatusCode(500, new { error = "An error occurred while ensuring admin user exists." });
+            }
         }
-
-        Log.Information("Admin user already exists.");
-        return Ok(new { message = "Admin user already exists." });
-    }
-    catch (Exception ex)
-    {
-        Log.Error(ex, "Error occurred while ensuring admin user exists.");
-        return StatusCode(500, new { error = "An error occurred while ensuring admin user exists." });
-    }
-    }
-    [HttpGet]
+        [HttpGet]
         public async Task<ActionResult<IEnumerable<User>>> GetUsers(CancellationToken cancellationToken)
         {
             try
             {
-                var users = await _context.User.ToListAsync(cancellationToken);
+                var users = await _context.Users.ToListAsync(cancellationToken);
                 Log.Information("Retrieved {UserCount} users", users.Count);
                 return users;
             }
@@ -140,7 +140,7 @@ namespace app.Controllers
                 return BadRequest("Username and password are required.");
             }
 
-            var user = await _context.User
+            var user = await _context.Users
                 .FirstOrDefaultAsync(u => u.Name == loginRequest.Name && !u.IsDeleted);
             if (user == null || !_passwordService.VerifyPassword(loginRequest.Password, user.Password))
             {

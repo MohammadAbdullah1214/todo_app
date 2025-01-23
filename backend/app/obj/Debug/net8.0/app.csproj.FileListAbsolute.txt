@@ -171,3 +171,7 @@ F:\.net\project\backend\app\obj\Debug\net8.0\app.sourcelink.json
 F:\.net\project\backend\app\bin\Debug\net8.0\Microsoft.AspNetCore.OpenApi.dll
 F:\.net\project\backend\app\bin\Debug\net8.0\MySqlConnector.dll
 F:\.net\project\backend\app\bin\Debug\net8.0\Pomelo.EntityFrameworkCore.MySql.dll
+F:\.net\project\backend\app\bin\Debug\net8.0\Microsoft.AspNetCore.Authorization.dll
+F:\.net\project\backend\app\bin\Debug\net8.0\Microsoft.AspNetCore.Metadata.dll
+F:\.net\project\backend\app\bin\Debug\net8.0\Castle.Core.dll
+F:\.net\project\backend\app\bin\Debug\net8.0\Moq.dll

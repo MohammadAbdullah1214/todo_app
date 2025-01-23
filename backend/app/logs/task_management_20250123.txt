@@ -93,3 +93,347 @@ VALUES (@p0, @p1, @p2, @p3, @p4);
 2025-01-23 17:51:39.478 +05:00 [INF] Executed action app.Controllers.AuthController.Register (app) in 2495.1632ms
 2025-01-23 17:51:39.481 +05:00 [INF] Executed endpoint 'app.Controllers.AuthController.Register (app)'
 2025-01-23 17:51:39.491 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5016/api/Auth/register - 201 null application/json; charset=utf-8 3708.6321ms
+2025-01-23 18:05:07.391 +05:00 [INF] User profile is available. Using 'C:\Users\Abdullah\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-23 18:05:07.636 +05:00 [INF] Now listening on: http://localhost:5016
+2025-01-23 18:05:07.767 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-23 18:05:07.769 +05:00 [INF] Hosting environment: Development
+2025-01-23 18:05:07.771 +05:00 [INF] Content root path: F:\.net\project\backend\app
+2025-01-23 18:05:08.926 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5016/swagger/index.html - null null
+2025-01-23 18:05:09.340 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5016/swagger/index.html - 200 null text/html;charset=utf-8 423.3509ms
+2025-01-23 18:05:10.031 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5016/_framework/aspnetcore-browser-refresh.js - null null
+2025-01-23 18:05:10.031 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5016/_vs/browserLink - null null
+2025-01-23 18:05:10.038 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5016/_framework/aspnetcore-browser-refresh.js - 200 13742 application/javascript; charset=utf-8 10.27ms
+2025-01-23 18:05:10.100 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5016/_vs/browserLink - 200 null text/javascript; charset=UTF-8 72.4147ms
+2025-01-23 18:05:10.291 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5016/swagger/v1/swagger.json - null null
+2025-01-23 18:05:10.504 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5016/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 213.0045ms
+2025-01-23 18:05:32.773 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5016/api/ - null null
+2025-01-23 18:05:32.878 +05:00 [WRN] Failed to determine the https port for redirect.
+2025-01-23 18:05:32.880 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5016/api/ - 404 0 null 106.409ms
+2025-01-23 18:05:32.889 +05:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5016/api/, Response status code: 404
+2025-01-23 18:05:42.927 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5016/swagger/index.html - null null
+2025-01-23 18:05:42.934 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5016/swagger/index.html - 200 null text/html;charset=utf-8 7.1763ms
+2025-01-23 18:05:43.028 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5016/_framework/aspnetcore-browser-refresh.js - null null
+2025-01-23 18:05:43.049 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5016/_framework/aspnetcore-browser-refresh.js - 200 13742 application/javascript; charset=utf-8 20.4983ms
+2025-01-23 18:05:43.399 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5016/_vs/browserLink - null null
+2025-01-23 18:05:43.407 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5016/_vs/browserLink - 200 null text/javascript; charset=UTF-8 8.5746ms
+2025-01-23 18:05:43.595 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5016/swagger/v1/swagger.json - null null
+2025-01-23 18:05:43.604 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5016/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 9.4701ms
+2025-01-23 18:06:08.171 +05:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5016/api/Auth/register - null null
+2025-01-23 18:06:08.180 +05:00 [INF] CORS policy execution successful.
+2025-01-23 18:06:08.183 +05:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5016/api/Auth/register - 204 null null 12.7895ms
+2025-01-23 18:06:08.192 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5016/api/Auth/register - application/json 62
+2025-01-23 18:06:08.198 +05:00 [INF] CORS policy execution successful.
+2025-01-23 18:06:08.200 +05:00 [INF] Executing endpoint 'app.Controllers.AuthController.Register (app)'
+2025-01-23 18:06:08.225 +05:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[app.Models.User]] Register(app.Models.User, System.Threading.CancellationToken) on controller app.Controllers.AuthController (app).
+2025-01-23 18:06:09.525 +05:00 [INF] Executed DbCommand (75ms) [Parameters=[@__user_Email_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [User] AS [u]
+        WHERE [u].[Email] = @__user_Email_0 AND [u].[IsDeleted] = CAST(0 AS bit)) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-01-23 18:06:09.749 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5016/api/Auth/register - application/json 62
+2025-01-23 18:06:09.753 +05:00 [INF] CORS policy execution successful.
+2025-01-23 18:06:09.755 +05:00 [INF] Executing endpoint 'app.Controllers.AuthController.Register (app)'
+2025-01-23 18:06:09.757 +05:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[app.Models.User]] Register(app.Models.User, System.Threading.CancellationToken) on controller app.Controllers.AuthController (app).
+2025-01-23 18:06:09.781 +05:00 [INF] Executed DbCommand (4ms) [Parameters=[@__user_Email_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [User] AS [u]
+        WHERE [u].[Email] = @__user_Email_0 AND [u].[IsDeleted] = CAST(0 AS bit)) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-01-23 18:06:10.213 +05:00 [INF] Executed DbCommand (3ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (DbType = Boolean), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [User] ([Email], [IsDeleted], [Name], [Password], [Role])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-01-23 18:06:10.249 +05:00 [INF] User registered successfully: 2
+2025-01-23 18:06:10.260 +05:00 [INF] Executing CreatedAtActionResult, writing value of type '<>f__AnonymousType2`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[<>f__AnonymousType3`4[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], app, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-23 18:06:10.274 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (DbType = Boolean), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [User] ([Email], [IsDeleted], [Name], [Password], [Role])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-01-23 18:06:10.277 +05:00 [INF] User registered successfully: 3
+2025-01-23 18:06:10.279 +05:00 [INF] Executing CreatedAtActionResult, writing value of type '<>f__AnonymousType2`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[<>f__AnonymousType3`4[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], app, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-23 18:06:10.290 +05:00 [INF] Executed action app.Controllers.AuthController.Register (app) in 527.3453ms
+2025-01-23 18:06:10.290 +05:00 [INF] Executed action app.Controllers.AuthController.Register (app) in 2058.6272ms
+2025-01-23 18:06:10.292 +05:00 [INF] Executed endpoint 'app.Controllers.AuthController.Register (app)'
+2025-01-23 18:06:10.294 +05:00 [INF] Executed endpoint 'app.Controllers.AuthController.Register (app)'
+2025-01-23 18:06:10.304 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5016/api/Auth/register - 201 null application/json; charset=utf-8 554.3873ms
+2025-01-23 18:06:10.304 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5016/api/Auth/register - 201 null application/json; charset=utf-8 2111.3535ms
+2025-01-23 18:06:15.540 +05:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5016/api/Auth/login - null null
+2025-01-23 18:06:15.544 +05:00 [INF] CORS policy execution successful.
+2025-01-23 18:06:15.545 +05:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5016/api/Auth/login - 204 null null 5.0081ms
+2025-01-23 18:06:15.550 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5016/api/Auth/login - application/json 38
+2025-01-23 18:06:15.554 +05:00 [INF] CORS policy execution successful.
+2025-01-23 18:06:15.555 +05:00 [INF] Executing endpoint 'app.Controllers.AuthController.Login (app)'
+2025-01-23 18:06:15.561 +05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.String]] Login(app.Controllers.LoginRequest) on controller app.Controllers.AuthController (app).
+2025-01-23 18:06:15.676 +05:00 [INF] Executed DbCommand (6ms) [Parameters=[@__loginRequest_Name_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[IsDeleted], [u].[Name], [u].[Password], [u].[Role]
+FROM [User] AS [u]
+WHERE [u].[Name] = @__loginRequest_Name_0 AND [u].[IsDeleted] = CAST(0 AS bit)
+2025-01-23 18:06:16.269 +05:00 [ERR] Error generating JWT token for user: 2
+System.ArgumentOutOfRangeException: IDX10720: Unable to create KeyedHashAlgorithm for algorithm 'http://www.w3.org/2001/04/xmldsig-more#hmac-sha256', the key size must be greater than: '256' bits, key has '144' bits. (Parameter 'keyBytes')
+   at Microsoft.IdentityModel.Tokens.CryptoProviderFactory.ValidateKeySize(Byte[] keyBytes, String algorithm, Int32 expectedNumberOfBytes)
+   at Microsoft.IdentityModel.Tokens.CryptoProviderFactory.CreateKeyedHashAlgorithm(Byte[] keyBytes, String algorithm)
+   at Microsoft.IdentityModel.Tokens.SymmetricSignatureProvider.CreateKeyedHashAlgorithm()
+   at Microsoft.IdentityModel.Tokens.DisposableObjectPool`1.CreateInstance()
+   at Microsoft.IdentityModel.Tokens.DisposableObjectPool`1.Allocate()
+   at Microsoft.IdentityModel.Tokens.SymmetricSignatureProvider.GetKeyedHashAlgorithm(Byte[] keyBytes, String algorithm)
+   at Microsoft.IdentityModel.Tokens.SymmetricSignatureProvider.Sign(Byte[] input)
+   at Microsoft.IdentityModel.JsonWebTokens.JwtTokenUtilities.CreateEncodedSignature(String input, SigningCredentials signingCredentials)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.CreateJwtSecurityTokenPrivate(String issuer, String audience, ClaimsIdentity subject, Nullable`1 notBefore, Nullable`1 expires, Nullable`1 issuedAt, SigningCredentials signingCredentials, EncryptingCredentials encryptingCredentials, IDictionary`2 claimCollection, String tokenType, IDictionary`2 additionalHeaderClaims, IDictionary`2 additionalInnerHeaderClaims)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.CreateToken(SecurityTokenDescriptor tokenDescriptor)
+   at app.Controllers.AuthController.GenerateJwtToken(User user) in F:\.net\project\backend\app\Controllers\AuthController.cs:line 194
+   at app.Controllers.AuthController.Login(LoginRequest loginRequest) in F:\.net\project\backend\app\Controllers\AuthController.cs:line 153
+2025-01-23 18:06:16.314 +05:00 [INF] Executing ObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-01-23 18:06:16.317 +05:00 [INF] Executed action app.Controllers.AuthController.Login (app) in 752.6359ms
+2025-01-23 18:06:16.319 +05:00 [INF] Executed endpoint 'app.Controllers.AuthController.Login (app)'
+2025-01-23 18:06:16.320 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5016/api/Auth/login - 500 null application/json; charset=utf-8 770.4121ms
+2025-01-23 18:06:28.509 +05:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5016/api/Auth/login - null null
+2025-01-23 18:06:28.512 +05:00 [INF] CORS policy execution successful.
+2025-01-23 18:06:28.513 +05:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5016/api/Auth/login - 204 null null 4.1975ms
+2025-01-23 18:06:28.517 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5016/api/Auth/login - application/json 38
+2025-01-23 18:06:28.522 +05:00 [INF] CORS policy execution successful.
+2025-01-23 18:06:28.523 +05:00 [INF] Executing endpoint 'app.Controllers.AuthController.Login (app)'
+2025-01-23 18:06:28.524 +05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.String]] Login(app.Controllers.LoginRequest) on controller app.Controllers.AuthController (app).
+2025-01-23 18:06:28.532 +05:00 [INF] Executed DbCommand (3ms) [Parameters=[@__loginRequest_Name_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[IsDeleted], [u].[Name], [u].[Password], [u].[Role]
+FROM [User] AS [u]
+WHERE [u].[Name] = @__loginRequest_Name_0 AND [u].[IsDeleted] = CAST(0 AS bit)
+2025-01-23 18:06:28.727 +05:00 [ERR] Error generating JWT token for user: 2
+System.ArgumentOutOfRangeException: IDX10720: Unable to create KeyedHashAlgorithm for algorithm 'http://www.w3.org/2001/04/xmldsig-more#hmac-sha256', the key size must be greater than: '256' bits, key has '144' bits. (Parameter 'keyBytes')
+   at Microsoft.IdentityModel.Tokens.CryptoProviderFactory.ValidateKeySize(Byte[] keyBytes, String algorithm, Int32 expectedNumberOfBytes)
+   at Microsoft.IdentityModel.Tokens.CryptoProviderFactory.CreateKeyedHashAlgorithm(Byte[] keyBytes, String algorithm)
+   at Microsoft.IdentityModel.Tokens.SymmetricSignatureProvider.CreateKeyedHashAlgorithm()
+   at Microsoft.IdentityModel.Tokens.DisposableObjectPool`1.CreateInstance()
+   at Microsoft.IdentityModel.Tokens.DisposableObjectPool`1.Allocate()
+   at Microsoft.IdentityModel.Tokens.SymmetricSignatureProvider.GetKeyedHashAlgorithm(Byte[] keyBytes, String algorithm)
+   at Microsoft.IdentityModel.Tokens.SymmetricSignatureProvider.Sign(Byte[] input)
+   at Microsoft.IdentityModel.JsonWebTokens.JwtTokenUtilities.CreateEncodedSignature(String input, SigningCredentials signingCredentials)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.CreateJwtSecurityTokenPrivate(String issuer, String audience, ClaimsIdentity subject, Nullable`1 notBefore, Nullable`1 expires, Nullable`1 issuedAt, SigningCredentials signingCredentials, EncryptingCredentials encryptingCredentials, IDictionary`2 claimCollection, String tokenType, IDictionary`2 additionalHeaderClaims, IDictionary`2 additionalInnerHeaderClaims)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.CreateToken(SecurityTokenDescriptor tokenDescriptor)
+   at app.Controllers.AuthController.GenerateJwtToken(User user) in F:\.net\project\backend\app\Controllers\AuthController.cs:line 194
+   at app.Controllers.AuthController.Login(LoginRequest loginRequest) in F:\.net\project\backend\app\Controllers\AuthController.cs:line 153
+2025-01-23 18:06:28.735 +05:00 [INF] Executing ObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-01-23 18:06:28.737 +05:00 [INF] Executed action app.Controllers.AuthController.Login (app) in 209.9084ms
+2025-01-23 18:06:28.739 +05:00 [INF] Executed endpoint 'app.Controllers.AuthController.Login (app)'
+2025-01-23 18:06:28.740 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5016/api/Auth/login - 500 null application/json; charset=utf-8 223.023ms
+2025-01-23 18:07:12.160 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5016/api/Auth/login - null null
+2025-01-23 18:07:12.170 +05:00 [INF] Executing endpoint 'app.Controllers.AuthController.GetUser (app)'
+2025-01-23 18:07:12.184 +05:00 [INF] Route matched with {action = "GetUser", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[app.Models.User]] GetUser(Int32, System.Threading.CancellationToken) on controller app.Controllers.AuthController (app).
+2025-01-23 18:07:12.205 +05:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2025-01-23 18:07:12.230 +05:00 [INF] Executed action app.Controllers.AuthController.GetUser (app) in 42.3039ms
+2025-01-23 18:07:12.232 +05:00 [INF] Executed endpoint 'app.Controllers.AuthController.GetUser (app)'
+2025-01-23 18:07:12.234 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5016/api/Auth/login - 400 null application/problem+json; charset=utf-8 74.5325ms
+2025-01-23 18:07:12.751 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5016/favicon.ico - null null
+2025-01-23 18:07:12.755 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5016/favicon.ico - 404 0 null 4.4927ms
+2025-01-23 18:07:12.760 +05:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5016/favicon.ico, Response status code: 404
+2025-01-23 18:07:45.351 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5016/api/ - null null
+2025-01-23 18:07:45.366 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5016/api/ - 404 0 null 15.5994ms
+2025-01-23 18:07:45.414 +05:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5016/api/, Response status code: 404
+2025-01-23 18:10:19.492 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5016/swagger/index.html - null null
+2025-01-23 18:10:19.510 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5016/swagger/index.html - 200 null text/html;charset=utf-8 42.0028ms
+2025-01-23 18:10:19.583 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5016/_framework/aspnetcore-browser-refresh.js - null null
+2025-01-23 18:10:19.620 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5016/_framework/aspnetcore-browser-refresh.js - 200 13742 application/javascript; charset=utf-8 36.7811ms
+2025-01-23 18:10:19.732 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5016/_vs/browserLink - null null
+2025-01-23 18:10:19.740 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5016/_vs/browserLink - 200 null text/javascript; charset=UTF-8 8.8542ms
+2025-01-23 18:10:19.864 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5016/swagger/v1/swagger.json - null null
+2025-01-23 18:10:19.871 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5016/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 6.5292ms
+2025-01-23 18:10:19.899 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5016/swagger/favicon-32x32.png - null null
+2025-01-23 18:10:19.928 +05:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2025-01-23 18:10:19.931 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5016/swagger/favicon-32x32.png - 200 628 image/png 31.4632ms
+2025-01-23 18:10:24.409 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5016/swagger/index.html - null null
+2025-01-23 18:10:24.418 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5016/swagger/index.html - 200 null text/html;charset=utf-8 8.8199ms
+2025-01-23 18:10:24.488 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5016/_framework/aspnetcore-browser-refresh.js - null null
+2025-01-23 18:10:24.498 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5016/_framework/aspnetcore-browser-refresh.js - 200 13742 application/javascript; charset=utf-8 10.0986ms
+2025-01-23 18:10:24.587 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5016/_vs/browserLink - null null
+2025-01-23 18:10:24.601 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5016/_vs/browserLink - 200 null text/javascript; charset=UTF-8 13.8617ms
+2025-01-23 18:10:24.705 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5016/swagger/v1/swagger.json - null null
+2025-01-23 18:10:24.719 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5016/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 14.2506ms
+2025-01-23 18:10:27.495 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5016/ - null null
+2025-01-23 18:10:27.501 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5016/ - 404 0 null 5.9995ms
+2025-01-23 18:10:27.506 +05:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5016/, Response status code: 404
+2025-01-23 18:10:34.963 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5016/ - null null
+2025-01-23 18:10:34.968 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5016/ - 404 0 null 4.66ms
+2025-01-23 18:10:34.973 +05:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5016/, Response status code: 404
+2025-01-23 18:10:59.539 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5016/swagger/index.html - null null
+2025-01-23 18:10:59.548 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5016/swagger/index.html - 200 null text/html;charset=utf-8 9.2595ms
+2025-01-23 18:11:27.954 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5016/swagger/index.html - null 0
+2025-01-23 18:11:27.958 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5016/swagger/index.html - 404 0 null 4.0287ms
+2025-01-23 18:11:27.963 +05:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: POST http://localhost:5016/swagger/index.html, Response status code: 404
+2025-01-23 18:11:31.160 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5016/swagger/index.html - null 0
+2025-01-23 18:11:31.164 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5016/swagger/index.html - 404 0 null 3.9551ms
+2025-01-23 18:11:31.167 +05:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: POST http://localhost:5016/swagger/index.html, Response status code: 404
+2025-01-23 18:11:33.760 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5016/swagger/index.html - null 0
+2025-01-23 18:11:33.764 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5016/swagger/index.html - 404 0 null 4.2547ms
+2025-01-23 18:11:33.769 +05:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: POST http://localhost:5016/swagger/index.html, Response status code: 404
+2025-01-23 18:11:36.320 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5016/swagger/index.html - null null
+2025-01-23 18:11:36.324 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5016/swagger/index.html - 200 null text/html;charset=utf-8 4.3349ms
+2025-01-23 18:11:50.634 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5016/swagger/index.html  whats my api - null null
+2025-01-23 18:11:50.643 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5016/swagger/index.html  whats my api - 404 0 null 10.3113ms
+2025-01-23 18:11:50.649 +05:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5016/swagger/index.html%20%20whats%20my%20api, Response status code: 404
+2025-01-23 18:13:11.258 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5016/swagger/index.html - null null
+2025-01-23 18:13:11.282 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5016/swagger/index.html - 200 null text/html;charset=utf-8 24.7208ms
+2025-01-23 18:13:11.350 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5016/_framework/aspnetcore-browser-refresh.js - null null
+2025-01-23 18:13:11.357 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5016/_framework/aspnetcore-browser-refresh.js - 200 13742 application/javascript; charset=utf-8 6.5212ms
+2025-01-23 18:13:11.465 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5016/_vs/browserLink - null null
+2025-01-23 18:13:11.479 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5016/_vs/browserLink - 200 null text/javascript; charset=UTF-8 14.9282ms
+2025-01-23 18:13:11.602 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5016/swagger/v1/swagger.json - null null
+2025-01-23 18:13:11.608 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5016/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 6.0669ms
+2025-01-23 18:13:40.992 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5016/api/Auth/register - null null
+2025-01-23 18:13:41.005 +05:00 [INF] Executing endpoint 'app.Controllers.AuthController.GetUser (app)'
+2025-01-23 18:13:41.012 +05:00 [INF] Route matched with {action = "GetUser", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[app.Models.User]] GetUser(Int32, System.Threading.CancellationToken) on controller app.Controllers.AuthController (app).
+2025-01-23 18:13:41.016 +05:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2025-01-23 18:13:41.018 +05:00 [INF] Executed action app.Controllers.AuthController.GetUser (app) in 3.0851ms
+2025-01-23 18:13:41.020 +05:00 [INF] Executed endpoint 'app.Controllers.AuthController.GetUser (app)'
+2025-01-23 18:13:41.022 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5016/api/Auth/register - 400 null application/problem+json; charset=utf-8 29.5952ms
+2025-01-23 18:13:48.212 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5016/_framework/aspnetcore-browser-refresh.js - null null
+2025-01-23 18:13:48.220 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5016/_framework/aspnetcore-browser-refresh.js - 200 13742 application/javascript; charset=utf-8 8.6861ms
+2025-01-23 23:47:32.385 +05:00 [INF] User profile is available. Using 'C:\Users\Abdullah\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-23 23:47:32.770 +05:00 [INF] Now listening on: http://localhost:5016
+2025-01-23 23:47:32.876 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-23 23:47:32.877 +05:00 [INF] Hosting environment: Development
+2025-01-23 23:47:32.879 +05:00 [INF] Content root path: F:\.net\project\backend\app
+2025-01-23 23:47:33.332 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5016/swagger/index.html - null null
+2025-01-23 23:47:33.623 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5016/swagger/index.html - 200 null text/html;charset=utf-8 305.4319ms
+2025-01-23 23:47:34.118 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5016/_vs/browserLink - null null
+2025-01-23 23:47:34.119 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5016/_framework/aspnetcore-browser-refresh.js - null null
+2025-01-23 23:47:34.129 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5016/_framework/aspnetcore-browser-refresh.js - 200 13742 application/javascript; charset=utf-8 8.4284ms
+2025-01-23 23:47:34.171 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5016/_vs/browserLink - 200 null text/javascript; charset=UTF-8 53.9925ms
+2025-01-23 23:47:34.307 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5016/swagger/v1/swagger.json - null null
+2025-01-23 23:47:34.456 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5016/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 149.6093ms
+2025-01-23 23:50:43.813 +05:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5016/api/Auth/login - null null
+2025-01-23 23:50:43.829 +05:00 [INF] CORS policy execution successful.
+2025-01-23 23:50:43.832 +05:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5016/api/Auth/login - 204 null null 20.2818ms
+2025-01-23 23:50:43.838 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5016/api/Auth/login - application/json 35
+2025-01-23 23:50:43.842 +05:00 [INF] CORS policy execution successful.
+2025-01-23 23:50:44.930 +05:00 [WRN] Failed to determine the https port for redirect.
+2025-01-23 23:50:44.933 +05:00 [INF] Executing endpoint 'app.Controllers.AuthController.Login (app)'
+2025-01-23 23:50:44.962 +05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.String]] Login(app.Controllers.LoginRequest) on controller app.Controllers.AuthController (app).
+2025-01-23 23:50:45.703 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5016/api/Auth/login - application/json 35
+2025-01-23 23:50:45.706 +05:00 [INF] CORS policy execution successful.
+2025-01-23 23:50:45.708 +05:00 [INF] Executing endpoint 'app.Controllers.AuthController.Login (app)'
+2025-01-23 23:50:45.709 +05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.String]] Login(app.Controllers.LoginRequest) on controller app.Controllers.AuthController (app).
+2025-01-23 23:50:48.186 +05:00 [INF] Executed DbCommand (108ms) [Parameters=[@__loginRequest_Name_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[IsDeleted], [u].[Name], [u].[Password], [u].[Role]
+FROM [User] AS [u]
+WHERE [u].[Name] = @__loginRequest_Name_0 AND [u].[IsDeleted] = CAST(0 AS bit)
+2025-01-23 23:50:48.186 +05:00 [INF] Executed DbCommand (108ms) [Parameters=[@__loginRequest_Name_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[IsDeleted], [u].[Name], [u].[Password], [u].[Role]
+FROM [User] AS [u]
+WHERE [u].[Name] = @__loginRequest_Name_0 AND [u].[IsDeleted] = CAST(0 AS bit)
+2025-01-23 23:50:48.215 +05:00 [WRN] Failed login attempt for user: admin
+2025-01-23 23:50:48.215 +05:00 [WRN] Failed login attempt for user: admin
+2025-01-23 23:50:48.229 +05:00 [INF] Executing UnauthorizedObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-01-23 23:50:48.230 +05:00 [INF] Executing UnauthorizedObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-01-23 23:50:48.241 +05:00 [INF] Executed action app.Controllers.AuthController.Login (app) in 3272.1453ms
+2025-01-23 23:50:48.241 +05:00 [INF] Executed action app.Controllers.AuthController.Login (app) in 2525.4176ms
+2025-01-23 23:50:48.243 +05:00 [INF] Executed endpoint 'app.Controllers.AuthController.Login (app)'
+2025-01-23 23:50:48.247 +05:00 [INF] Executed endpoint 'app.Controllers.AuthController.Login (app)'
+2025-01-23 23:50:48.258 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5016/api/Auth/login - 401 null application/json; charset=utf-8 2554.8353ms
+2025-01-23 23:50:48.258 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5016/api/Auth/login - 401 null application/json; charset=utf-8 4419.9767ms
+2025-01-23 23:50:57.414 +05:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5016/api/Auth/login - null null
+2025-01-23 23:50:57.419 +05:00 [INF] CORS policy execution successful.
+2025-01-23 23:50:57.420 +05:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5016/api/Auth/login - 204 null null 5.9395ms
+2025-01-23 23:50:57.425 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5016/api/Auth/login - application/json 35
+2025-01-23 23:50:57.429 +05:00 [INF] CORS policy execution successful.
+2025-01-23 23:50:57.432 +05:00 [INF] Executing endpoint 'app.Controllers.AuthController.Login (app)'
+2025-01-23 23:50:57.434 +05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.String]] Login(app.Controllers.LoginRequest) on controller app.Controllers.AuthController (app).
+2025-01-23 23:50:57.501 +05:00 [INF] Executed DbCommand (4ms) [Parameters=[@__loginRequest_Name_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[IsDeleted], [u].[Name], [u].[Password], [u].[Role]
+FROM [User] AS [u]
+WHERE [u].[Name] = @__loginRequest_Name_0 AND [u].[IsDeleted] = CAST(0 AS bit)
+2025-01-23 23:50:57.505 +05:00 [WRN] Failed login attempt for user: admin
+2025-01-23 23:50:57.507 +05:00 [INF] Executing UnauthorizedObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-01-23 23:50:57.509 +05:00 [INF] Executed action app.Controllers.AuthController.Login (app) in 70.9203ms
+2025-01-23 23:50:57.510 +05:00 [INF] Executed endpoint 'app.Controllers.AuthController.Login (app)'
+2025-01-23 23:50:57.512 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5016/api/Auth/login - 401 null application/json; charset=utf-8 87.3496ms
+2025-01-23 23:51:15.280 +05:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5016/api/Auth/login - null null
+2025-01-23 23:51:15.285 +05:00 [INF] CORS policy execution successful.
+2025-01-23 23:51:15.286 +05:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5016/api/Auth/login - 204 null null 5.805ms
+2025-01-23 23:51:15.291 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5016/api/Auth/login - application/json 35
+2025-01-23 23:51:15.295 +05:00 [INF] CORS policy execution successful.
+2025-01-23 23:51:15.299 +05:00 [INF] Executing endpoint 'app.Controllers.AuthController.Login (app)'
+2025-01-23 23:51:15.302 +05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.String]] Login(app.Controllers.LoginRequest) on controller app.Controllers.AuthController (app).
+2025-01-23 23:51:15.313 +05:00 [INF] Executed DbCommand (4ms) [Parameters=[@__loginRequest_Name_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[IsDeleted], [u].[Name], [u].[Password], [u].[Role]
+FROM [User] AS [u]
+WHERE [u].[Name] = @__loginRequest_Name_0 AND [u].[IsDeleted] = CAST(0 AS bit)
+2025-01-23 23:51:15.321 +05:00 [WRN] Failed login attempt for user: admin
+2025-01-23 23:51:15.323 +05:00 [INF] Executing UnauthorizedObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-01-23 23:51:15.327 +05:00 [INF] Executed action app.Controllers.AuthController.Login (app) in 21.0361ms
+2025-01-23 23:51:15.329 +05:00 [INF] Executed endpoint 'app.Controllers.AuthController.Login (app)'
+2025-01-23 23:51:15.331 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5016/api/Auth/login - 401 null application/json; charset=utf-8 39.34ms
+2025-01-23 23:51:26.926 +05:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5016/api/Auth/login - null null
+2025-01-23 23:51:26.931 +05:00 [INF] CORS policy execution successful.
+2025-01-23 23:51:26.933 +05:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5016/api/Auth/login - 204 null null 6.4113ms
+2025-01-23 23:51:26.938 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5016/api/Auth/login - application/json 35
+2025-01-23 23:51:26.943 +05:00 [INF] CORS policy execution successful.
+2025-01-23 23:51:26.944 +05:00 [INF] Executing endpoint 'app.Controllers.AuthController.Login (app)'
+2025-01-23 23:51:26.946 +05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.String]] Login(app.Controllers.LoginRequest) on controller app.Controllers.AuthController (app).
+2025-01-23 23:51:26.956 +05:00 [INF] Executed DbCommand (3ms) [Parameters=[@__loginRequest_Name_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[IsDeleted], [u].[Name], [u].[Password], [u].[Role]
+FROM [User] AS [u]
+WHERE [u].[Name] = @__loginRequest_Name_0 AND [u].[IsDeleted] = CAST(0 AS bit)
+2025-01-23 23:51:26.973 +05:00 [WRN] Failed login attempt for user: admin
+2025-01-23 23:51:26.975 +05:00 [INF] Executing UnauthorizedObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-01-23 23:51:26.981 +05:00 [INF] Executed action app.Controllers.AuthController.Login (app) in 31.7002ms
+2025-01-23 23:51:26.983 +05:00 [INF] Executed endpoint 'app.Controllers.AuthController.Login (app)'
+2025-01-23 23:51:26.985 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5016/api/Auth/login - 401 null application/json; charset=utf-8 47.3217ms
+2025-01-23 23:57:06.353 +05:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5016/api/Auth/login - null null
+2025-01-23 23:57:06.360 +05:00 [INF] CORS policy execution successful.
+2025-01-23 23:57:06.361 +05:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5016/api/Auth/login - 204 null null 8.3168ms
+2025-01-23 23:57:06.371 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5016/api/Auth/login - application/json 35
+2025-01-23 23:57:06.374 +05:00 [INF] CORS policy execution successful.
+2025-01-23 23:57:06.391 +05:00 [INF] Executing endpoint 'app.Controllers.AuthController.Login (app)'
+2025-01-23 23:57:06.401 +05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.String]] Login(app.Controllers.LoginRequest) on controller app.Controllers.AuthController (app).
+2025-01-23 23:57:06.418 +05:00 [INF] Executed DbCommand (5ms) [Parameters=[@__loginRequest_Name_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[IsDeleted], [u].[Name], [u].[Password], [u].[Role]
+FROM [User] AS [u]
+WHERE [u].[Name] = @__loginRequest_Name_0 AND [u].[IsDeleted] = CAST(0 AS bit)
+2025-01-23 23:57:06.424 +05:00 [WRN] Failed login attempt for user: admin
+2025-01-23 23:57:06.425 +05:00 [INF] Executing UnauthorizedObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-01-23 23:57:06.427 +05:00 [INF] Executed action app.Controllers.AuthController.Login (app) in 18.3793ms
+2025-01-23 23:57:06.429 +05:00 [INF] Executed endpoint 'app.Controllers.AuthController.Login (app)'
+2025-01-23 23:57:06.431 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5016/api/Auth/login - 401 null application/json; charset=utf-8 60.2204ms
+2025-01-23 23:57:54.861 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5016/api/Auth/login - null null
+2025-01-23 23:57:54.866 +05:00 [INF] Executing endpoint 'app.Controllers.AuthController.GetUser (app)'
+2025-01-23 23:57:54.877 +05:00 [INF] Route matched with {action = "GetUser", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[app.Models.User]] GetUser(Int32, System.Threading.CancellationToken) on controller app.Controllers.AuthController (app).
+2025-01-23 23:57:54.895 +05:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2025-01-23 23:57:54.923 +05:00 [INF] Executed action app.Controllers.AuthController.GetUser (app) in 41.5852ms
+2025-01-23 23:57:54.925 +05:00 [INF] Executed endpoint 'app.Controllers.AuthController.GetUser (app)'
+2025-01-23 23:57:54.927 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5016/api/Auth/login - 400 null application/problem+json; charset=utf-8 73.4196ms
+2025-01-23 23:58:06.092 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5016/api/Auth/login - null 0
+2025-01-23 23:58:06.096 +05:00 [INF] Executing endpoint 'app.Controllers.AuthController.Login (app)'
+2025-01-23 23:58:06.097 +05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.String]] Login(app.Controllers.LoginRequest) on controller app.Controllers.AuthController (app).
+2025-01-23 23:58:06.106 +05:00 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+2025-01-23 23:58:06.110 +05:00 [INF] Executed action app.Controllers.AuthController.Login (app) in 9.1399ms
+2025-01-23 23:58:06.112 +05:00 [INF] Executed endpoint 'app.Controllers.AuthController.Login (app)'
+2025-01-23 23:58:06.116 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5016/api/Auth/login - 415 null application/problem+json; charset=utf-8 23.4297ms
+2025-01-23 23:58:14.058 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5016/api/Auth/login - null null
+2025-01-23 23:58:14.061 +05:00 [INF] Executing endpoint 'app.Controllers.AuthController.GetUser (app)'
+2025-01-23 23:58:14.063 +05:00 [INF] Route matched with {action = "GetUser", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[app.Models.User]] GetUser(Int32, System.Threading.CancellationToken) on controller app.Controllers.AuthController (app).
+2025-01-23 23:58:14.067 +05:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2025-01-23 23:58:14.070 +05:00 [INF] Executed action app.Controllers.AuthController.GetUser (app) in 4.1843ms
+2025-01-23 23:58:14.072 +05:00 [INF] Executed endpoint 'app.Controllers.AuthController.GetUser (app)'
+2025-01-23 23:58:14.074 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5016/api/Auth/login - 400 null application/problem+json; charset=utf-8 15.7973ms
+2025-01-23 23:59:43.840 +05:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-01-23 23:59:43.889 +05:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-01-23 23:59:43.892 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-01-23 23:59:43.893 +05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-01-23 23:59:43.923 +05:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-01-23 23:59:43.935 +05:00 [INF] No migrations were applied. The database is already up to date.
