@@ -6,78 +6,79 @@ import { User, Task } from '../../Services/types';
 import { useNavigate } from 'react-router-dom';
 
 const NewTask: React.FC = () => {
-  const navigate = useNavigate();
-  const { username } = useAuth();
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
-  const [dueDate, setDueDate] = useState('');
-  const [priority, setPriority] = useState('Normal');
-  const [users, setUsers] = useState<User[]>([]);
-  const [assignedToUserId, setAssignedToUserId] = useState<number | undefined>(undefined);
+    const navigate = useNavigate();
+    const { username } = useAuth();
+    const [title, setTitle] = useState('');
+    const [description, setDescription] = useState('');
+    const [dueDate, setDueDate] = useState('');
+    const [priority, setPriority] = useState('Normal');
+    const [users, setUsers] = useState<User[]>([]);
+    const [assignedToUserId, setAssignedToUserId] = useState<number | undefined>(undefined);
+    const [isLoading, setIsLoading] = useState(false);
 
-  useEffect(() => {
-    const fetchUsers = async () => {
-      try {
-        const userList = await getUsers();
-        setUsers(userList);
-      } catch (error) {
-        console.error('Error fetching users:', error);
-      }
-    };
-    fetchUsers();
-  }, []);
+    useEffect(() => {
+        const fetchUsers = async () => {
+            try {
+                const userList = await getUsers();
+                setUsers(userList);
+            } catch (error) {
+                console.error('Error fetching users:', error);
+            }
+        };
+        fetchUsers();
+    }, []);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!assignedToUserId) {
-      alert('Please select a user to assign the task to.');
-      return;
-    }
-    const newTask: Omit<Task, 'id' | 'assignedToUser' | 'assignedToUserName'> = {
-      title,
-      description,
-      dueDate: dueDate || undefined,
-      priority,
-      status: 'Pending',
-      assignedToUserId,
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        if (!assignedToUserId) {
+            alert('Please select a user to assign the task to.');
+            return;
+        }
+        const newTask: Omit<Task, 'id' | 'assignedToUser' | 'assignedToUserName'> = {
+            title,
+            description,
+            dueDate: dueDate || undefined,
+            priority,
+            status: 'Pending',
+            assignedToUserId,
+        };
+        setIsLoading(true);
+        try {
+            const createdTask = await createTask(newTask);
+            console.log('Created Task:', createdTask);
+            alert('Task created successfully');
+            setTitle('');
+            setDescription('');
+            setDueDate('');
+            setPriority('Normal');
+            setAssignedToUserId(undefined);
+        } catch (error: any) {
+            console.error('Error creating task:', error.response?.data || error.message);
+            alert(`Error creating task: ${error.response?.data?.error || error.message}`);
+        } finally {
+            setIsLoading(false);
+        }
     };
-    console.log("New Task Payload:", newTask);
-    try {
-      const createdTask = await createTask(newTask);
-      console.log("Created Task:", createdTask);
-      alert('Task created successfully');
-      setTitle('');
-      setDescription('');
-      setDueDate('');
-      setPriority('Normal');
-      setAssignedToUserId(undefined);
-    } catch (error: any) {
-      console.error('Error creating task:', error.response?.data || error.message);
-      alert(`Error creating task: ${error.response?.data?.error || error.message}`);
-    }
-  };
 
     return (
         <div className="container-fluid">
             <div className="row">
                 <Sidebar />
                 <main className="col-md-9 ms-sm-auto col-lg-10 px-4">
-                <div className="d-flex justify-content-between align-items-center mt-4 mb-4">
-                <h2>Add Task</h2>
-                    <button 
-                            className="btn btn-secondary" 
-                            onClick={() => navigate('/tasklist')}
-                        >
+                    <div className="d-flex justify-content-between align-items-center mt-4 mb-4">
+                        <h2>Add Task</h2>
+                        <button className="btn btn-secondary" onClick={() => navigate('/tasklist')}>
                             Back to List
                         </button>
-                        </div>
-                    <form onSubmit={handleSubmit} className="bg-light p-4 rounded border">
+                    </div>
+                    <form onSubmit={handleSubmit} className="bg-white shadow p-4 rounded">
                         <div className="mb-3">
                             <label htmlFor="title" className="form-label">Title</label>
                             <input
                                 type="text"
                                 className="form-control"
                                 id="title"
+                                placeholder="Enter task title"
                                 value={title}
                                 onChange={(e) => setTitle(e.target.value)}
                                 required
@@ -88,8 +89,10 @@ const NewTask: React.FC = () => {
                             <textarea
                                 className="form-control"
                                 id="description"
+                                placeholder="Enter task description"
                                 value={description}
                                 onChange={(e) => setDescription(e.target.value)}
+                                rows={3}
                                 required
                             />
                         </div>
@@ -117,7 +120,7 @@ const NewTask: React.FC = () => {
                             </select>
                         </div>
                         <div className="mb-3">
-                            <label htmlFor="assignedToUserId" className="form-label">Assigned To</label>
+                            <label htmlFor="assignedToUserId" className="form-label">Assign To</label>
                             <select
                                 className="form-select"
                                 id="assignedToUserId"
@@ -126,12 +129,20 @@ const NewTask: React.FC = () => {
                                 required
                             >
                                 <option value="">Select a user</option>
-                                {users.map(user => (
-                                    <option key={user.id} value={user.id}>{user.name}</option>
+                                {users.map((user) => (
+                                    <option key={user.id} value={user.id}>
+                                        {user.name}
+                                    </option>
                                 ))}
                             </select>
                         </div>
-                        <button type="submit" className="btn btn-primary">Create Task</button>
+                        <button
+                            type="submit"
+                            className="btn btn-primary w-100"
+                            disabled={isLoading}
+                        >
+                            {isLoading ? 'Creating Task...' : 'Create Task'}
+                        </button>
                     </form>
                 </main>
             </div>
