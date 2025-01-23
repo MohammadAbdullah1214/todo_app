@@ -27,9 +27,14 @@ dotnet run
 
 
 # **For frontend**
-1) Replace the baseURL in api.ts file in the src/services folder to the localhost the backend is running. 
+1) Replace the baseURL in api.ts file in the src/services folder to the localhost the backend is running.
+```npm
+const api = axios.create({
+    baseURL: 'your_backend_api_url',
+});
+```
    
-2) In the terminal run,
+3) In the terminal run,
 ```npm
 npm install
 npm start
